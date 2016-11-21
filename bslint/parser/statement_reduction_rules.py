@@ -145,11 +145,7 @@ RULES_LIST = {
             ([const.ELSE_IF, const.FUNCTION_CALL, const.EQUALS, const.VALUE], const.ELSE_IF_STMT),
         ],
         const.ENUMERABLE_OBJECT: [
-            ([const.ID, const.EQUALS, const.ENUMERABLE_OBJECT], const.VAR_AS),
-            ([const.VALUE, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.FUNCTION_CALL, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION],
-             const.CONDITION),
+            ([const.ID, const.EQUALS, const.ENUMERABLE_OBJECT], const.VAR_AS)
         ],
         const.FUNCTION_CALL: [
             ([const.ID, const.EQUALS, const.FUNCTION_CALL], const.VAR_AS),
@@ -370,7 +366,8 @@ RULES_LIST = {
         const.TYPE: [
             ([const.FUNCTION, const.FUNCTION_CALL, const.AS, const.TYPE], const.FUNCTION_DECLARATION),
             ([const.ID, const.AS, const.TYPE], const.PARAM),
-            ([const.VAR_AS, const.AS, const.TYPE], const.PARAM)
+            ([const.VAR_AS, const.AS, const.TYPE], const.PARAM),
+            ([const.ANONYMOUS_FUNCTION_DECLARATION, const.AS, const.TYPE], const.ANONYMOUS_FUNCTION_DECLARATION)
         ],
         const.VAR_AS: [
             ([const.WHILE, const.VAR_AS], const.WHILE_STMT),
@@ -440,6 +437,11 @@ RULES_LIST = {
              const.CONDITION),
             ([const.ELSE_IF, const.ANONYMOUS_FUNCTION_DECLARATION], const.ELSE_IF_STMT),
             ([const.RETURN_STMT, const.ANONYMOUS_FUNCTION_DECLARATION], const.RETURN_STMT),
+            ([const.VALUE, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
+            ([const.FUNCTION_CALL, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
+            ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION],
+             const.CONDITION),
+            ([const.ID, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.VAR_AS)
         ],
         const.THEN: [
             ([const.IF, const.CONDITION, const.THEN], const.IF_STMT),
