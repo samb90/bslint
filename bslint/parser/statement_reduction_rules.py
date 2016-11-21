@@ -43,7 +43,7 @@ RULES_LIST = {
         ],
         const.ID: [
             ([const.ID, const.DOT, const.ID], const.ID),
-            ([const.FUNCTION_CALL, const.DOT, const.ID], const.VALUE),
+            ([const.FUNCTION_CALL, const.DOT, const.ID], const.ID),
         ],
         const.FUNCTION_CALL: [
             ([const.FUNCTION_CALL, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
