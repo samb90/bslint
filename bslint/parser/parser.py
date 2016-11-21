@@ -130,7 +130,8 @@ class Parser(Lexer):
                     self.reduce_and_handle_error()
                 is_valid_statement = True
             index += 1
-        if not is_valid_statement and self.current_priority_level == (self.number_of_priorities - 1):
+        if not is_valid_statement and len(self.current_tokens) != 0 \
+                and self.current_priority_level == (self.number_of_priorities - 1):
             raise custom_exception.ParsingException(err_const.STMT_PARSING_FAILED)
 
     def get_index(self):
@@ -156,7 +157,7 @@ class Parser(Lexer):
         else:
             del self.current_statement[-tokens_from_end: -index]
         self.current_statement[
-            len(self.current_statement) - index:len(self.current_statement) - index] = [rule.result]
+        len(self.current_statement) - index:len(self.current_statement) - index] = [rule.result]
         self.current_output_list.append(self.current_statement[:])
 
     def _get_current_tokens(self, index, tokens_from_end):
