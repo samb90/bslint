@@ -49,6 +49,9 @@ RULES_LIST = {
             ([const.FUNCTION_CALL, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
             ([const.ID, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
         ],
+        const.BUILT_IN_FUNCTION: [
+            ([const.ID, const.DOT, const.BUILT_IN_FUNCTION], const.ID)
+        ],
     },
     const.PRIORITY_ONE: {
         const.VALUE: [
