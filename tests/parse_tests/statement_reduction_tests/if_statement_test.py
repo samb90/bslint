@@ -70,16 +70,16 @@ class TestIfParse(unittest.TestCase):
         self.common.match_statement(const.ELSE_IF_STMT, "else if 3 then")
 
     def test_if_then_no_end_if_func_call(self):
-        self.common.match_statement(const.BLOCK_STMT, "if requiresUpdate then showRequiresUpdateScreen()")
+        self.common.match_statement(const.IF_BLOCK_STMT, "if requiresUpdate then showRequiresUpdateScreen()")
 
     def test_else_if_then_no_end_if_func_call(self):
-        self.common.match_statement(const.BLOCK_STMT, "elseif requiresUpdate then showRequiresUpdateScreen()")
+        self.common.match_statement(const.IF_BLOCK_STMT, "elseif requiresUpdate then showRequiresUpdateScreen()")
 
     def test_else_if_then_no_end_if_var_as(self):
-        self.common.match_statement(const.BLOCK_STMT, "elseif requiresUpdate then c = 3")
+        self.common.match_statement(const.IF_BLOCK_STMT, "elseif requiresUpdate then c = 3")
 
     def test_if_then_no_end_if_var_as(self):
-        self.common.match_statement(const.BLOCK_STMT, "if requiresUpdate then c = 3")
+        self.common.match_statement(const.IF_BLOCK_STMT, "if requiresUpdate then c = 3")
 
     def test_else(self):
         self.common.match_statement(const.ELSE_STMT, "else")

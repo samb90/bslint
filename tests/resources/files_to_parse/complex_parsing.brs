@@ -1,30 +1,27 @@
-function InterstitialMediator() as Object
+function DisplayDefaultGridCommand() as Object
+
 	this = {
 
-		extends: BaseMediator
+		contentService: {typeOf:"ContentService"}
+		configService: {typeOf: "ConfigService"}
+		catalogueModel: {typeOf: "CatalogueModel"}
 
-		init: function () as Void
-			m.addObserver("buttonResponses", "_onButtonAction")
-			buttonLabels = []
-			for each item in m.interstitialObject.buttons
-				buttonLabels.push(item.name)
-			end for
-			m.setField("buttonLabels", buttonLabels)
-			m.setField("theme", m.interstitialObject.theme)
+		execute: function (_payload={} as Object) as Void
+			_node = _payload.data
+			currentCatalogueCollection = m.configService.getSettingValue(Settings().CURRENT_CATALOGUE_COLLECTION)
 
-			for each label in m.interstitialObject.labels.keys()
-					m.setField(label, m.interstitialObject.labels[label])
-			end for
+			if currentCatalogueCollection <> Invalid and currentCatalogueCollection <> NodeTypes().UNKNOWN
+
+				m.messageBus.dispatchEvent(Event(Actions().CLEAR_MAIN_PANEL_SET))
+				m.messageBus.dispatchEvent(Event(Actions().CREATE_DEFAULT_GRID_COMPONENT, _node))
+
+				m.configService.setSetting(Settings().CURRENT_CATALOGUE_COLLECTION, NodeTypes().UNKNOWN)
+			end if
+
+			m.catalogueModel.setViewData(_node.items[0])
+			m.catalogueModel.setIndex(0)
 		end function
-
-		setInterstitialObject: function (interstitialObject as Object) as Void
-			m.interstitialObject = interstitialObject
-		end function
-
-		_onButtonAction: function(_data as Object) as Void
-			m.messageBus.dispatchEvent(m.interstitialObject.buttons[_data].event)
-		end function
-
 	}
 	return this
+
 end function
