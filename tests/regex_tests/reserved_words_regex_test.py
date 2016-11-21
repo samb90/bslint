@@ -264,10 +264,10 @@ class TestReservedWordsRegex(unittest.TestCase):
         self.common.match_regex("Asc", 1, const.KEYWORD, const.KEYWORD)
 
     def test_lcase(self):
-        self.common.match_regex("Lcase", 1, const.KEYWORD, const.KEYWORD)
+        self.common.match_regex("Lcase", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
 
     def test_ucase(self):
-        self.common.match_regex("Ucase", 1, const.KEYWORD, const.KEYWORD)
+        self.common.match_regex("Ucase", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
 
     def test_format_json(self):
         self.common.match_regex("FormatJson", 1, const.KEYWORD, const.KEYWORD)
