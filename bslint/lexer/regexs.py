@@ -180,7 +180,6 @@ REGEX_LIST = [
     [r"(RUN)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(SUB)\b", const.SUB, const.SUB, const.INCREMENT_INDENTATION],
     [r"(TAB)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
-    [r"(TYPE)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
 
     [r"\?", const.PRINT_KEYWORD, const.PRINT_KEYWORD, const.NO_INDENTATION],
 

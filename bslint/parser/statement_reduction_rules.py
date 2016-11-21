@@ -43,7 +43,7 @@ RULES_LIST = {
         ],
         const.ID: [
             ([const.ID, const.DOT, const.ID], const.ID),
-            ([const.FUNCTION_CALL, const.DOT, const.ID], const.VALUE),
+            ([const.FUNCTION_CALL, const.DOT, const.ID], const.ID),
         ],
         const.FUNCTION_CALL: [
             ([const.FUNCTION_CALL, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
@@ -136,6 +136,7 @@ RULES_LIST = {
         const.ANONYMOUS_FUNCTION_BLOCK: [([const.ID, const.COLON, const.ANONYMOUS_FUNCTION_BLOCK],
                                           const.ASSOCIATIVE_ARRAY_ARGUMENT)],
         const.VALUE: [([const.ID, const.COLON, const.VALUE], const.ASSOCIATIVE_ARRAY_ARGUMENT)],
+        const.ENUMERABLE_OBJECT: [([const.ID, const.COLON, const.ENUMERABLE_OBJECT], const.ASSOCIATIVE_ARRAY_ARGUMENT)],
     },
     const.PRIORITY_THREE: {
         const.VALUE: [
@@ -445,7 +446,6 @@ RULES_LIST = {
             ([const.FUNCTION_CALL, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
             ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION],
              const.CONDITION),
-            ([const.ID, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.VAR_AS)
         ],
         const.THEN: [
             ([const.IF, const.CONDITION, const.THEN], const.IF_STMT),
