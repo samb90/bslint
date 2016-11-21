@@ -90,7 +90,7 @@ REGEX_LIST = [
     [r"(Cos)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(Atn)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(Abs)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
-    [r"(Substitute)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
+    [r"(Substitute)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(Tr)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Val)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(Stringi)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],

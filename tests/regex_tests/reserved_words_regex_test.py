@@ -228,7 +228,7 @@ class TestReservedWordsRegex(unittest.TestCase):
         self.common.match_regex("Abs", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
 
     def test_substitute(self):
-        self.common.match_regex("Substitute", 1, const.KEYWORD, const.KEYWORD)
+        self.common.match_regex("Substitute", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
 
     def test_tr(self):
         self.common.match_regex("Tr", 1, const.KEYWORD, const.KEYWORD)

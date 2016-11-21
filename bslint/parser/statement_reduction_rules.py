@@ -150,7 +150,6 @@ RULES_LIST = {
             ([const.ID, const.EQUALS, const.VALUE], const.VAR_AS),
             ([const.ID, const.EQUALS, const.MINUS, const.VALUE], const.VAR_AS),
             ([const.ID, const.EQUALS, const.PLUS, const.VALUE], const.VAR_AS),
-            ([const.IF, const.FUNCTION_CALL, const.EQUALS, const.VALUE], const.IF_STMT),
             ([const.VALUE, const.EQUALS, const.VALUE], const.CONDITION),
             ([const.FUNCTION_CALL, const.EQUALS, const.VALUE], const.CONDITION),
             ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.VALUE], const.CONDITION),
