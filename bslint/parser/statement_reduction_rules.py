@@ -396,6 +396,10 @@ RULES_LIST = {
             ([const.ELSE_IF_STMT, const.VAR_AS], const.BLOCK_STMT),
             ([const.IF_STMT, const.THEN, const.VAR_AS], const.BLOCK_STMT),
             ([const.ELSE_IF_STMT, const.THEN, const.VAR_AS], const.BLOCK_STMT),
+            ([const.VAR_AS, const.AND, const.VAR_AS], const.CONDITION),
+            ([const.VAR_AS, const.OR, const.VAR_AS], const.CONDITION),
+            ([const.CONDITION, const.AND, const.VAR_AS], const.CONDITION),
+            ([const.CONDITION, const.OR, const.VAR_AS], const.CONDITION)
         ],
         const.CLOSE_PARENTHESIS: [
             ([const.FUNCTION, const.OPEN_PARENTHESIS, const.CLOSE_PARENTHESIS], const.ANONYMOUS_FUNCTION_DECLARATION),
@@ -470,7 +474,9 @@ RULES_LIST = {
             ([const.CONDITION, const.AND, const.CONDITION], const.CONDITION),
             ([const.CONDITION, const.OR, const.CONDITION], const.CONDITION),
             ([const.IF, const.CONDITION], const.IF_STMT),
-            ([const.ELSE_IF, const.CONDITION], const.ELSE_IF_STMT)
+            ([const.ELSE_IF, const.CONDITION], const.ELSE_IF_STMT),
+            ([const.VAR_AS, const.AND, const.CONDITION], const.CONDITION),
+            ([const.VAR_AS, const.OR, const.CONDITION], const.CONDITION)
         ],
         const.WHILE: [([const.EXIT, const.WHILE], const.EXIT)],
         const.FOR: [([const.EXIT, const.FOR], const.EXIT)],
