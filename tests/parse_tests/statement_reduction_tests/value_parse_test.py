@@ -199,7 +199,7 @@ class TestValueParse(unittest.TestCase):
         self.common.match_statement(const.VALUE, "x() - -y()")
 
     def test_open_parenthesis_value_close_parenthesis(self):
-        self.common.match_statement(const.VALUE, "(1)")
+        self.common.match_statement(const.ID, "(1)")
 
     # Only ID Test
 
