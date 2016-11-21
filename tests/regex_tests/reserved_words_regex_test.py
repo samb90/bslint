@@ -63,7 +63,7 @@ class TestReservedWordsRegex(unittest.TestCase):
         self.common.match_regex("FUNCTION", 1, const.FUNCTION, const.FUNCTION)
 
     def test_end_function(self):
-        self.common.match_regex("END FUNCTION", 1, const.KEYWORD, const.END_FUNCTION_TOKEN)
+        self.common.match_regex("END FUNCTION", 1, const.END_FUNCTION_TOKEN, const.END_FUNCTION_TOKEN)
 
     def test_as(self):
         self.common.match_regex("AS", 1, const.KEYWORD, const.AS)
@@ -183,7 +183,7 @@ class TestReservedWordsRegex(unittest.TestCase):
         self.common.match_regex("end sub", 1, const.KEYWORD, const.END_SUB_TOKEN)
 
     def test_end_function_no_space(self):
-        self.common.match_regex("endfunction", 1, const.KEYWORD, const.END_FUNCTION_TOKEN)
+        self.common.match_regex("endfunction", 1, const.END_FUNCTION_TOKEN, const.END_FUNCTION_TOKEN)
 
     def test_tan(self):
         self.common.match_regex("Tan", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
