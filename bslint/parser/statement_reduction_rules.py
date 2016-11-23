@@ -53,6 +53,9 @@ RULES_LIST = {
         const.BUILT_IN_FUNCTION: [
             ([const.ID, const.DOT, const.BUILT_IN_FUNCTION], const.ID)
         ],
+        const.KEYWORD: [
+            ([const.ID, const.DOT, const.KEYWORD], const.ID)
+        ]
     },
     const.PRIORITY_ONE: {
         const.VALUE: [
@@ -333,10 +336,6 @@ RULES_LIST = {
             ([const.ANONYMOUS_FUNCTION_DECLARATION, const.COMPARISON_OPERATOR, const.ID], const.CONDITION),
             ([const.ELSE_IF, const.ID], const.ELSE_IF_STMT),
             ([const.RETURN_STMT, const.ID], const.RETURN_STMT),
-            ([const.IF_STMT, const.ID], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.ID], const.IF_BLOCK_STMT),
-            ([const.IF_STMT, const.THEN, const.ID], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.THEN, const.ID], const.IF_BLOCK_STMT),
         ],
         const.VALUE: [
             ([const.FOR, const.VAR_AS, const.TO, const.VALUE], const.FOR_STMT),
@@ -353,10 +352,6 @@ RULES_LIST = {
             ([const.RETURN_STMT, const.VALUE], const.RETURN_STMT),
             ([const.WHILE, const.VALUE], const.WHILE_STMT),
             ([const.PRINT_KEYWORD, const.VALUE], const.PRINT_STMT),
-            ([const.IF_STMT, const.VALUE], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.VALUE], const.IF_BLOCK_STMT),
-            ([const.IF_STMT, const.THEN, const.VALUE], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.THEN, const.VALUE], const.IF_BLOCK_STMT),
 
         ],
         const.FUNCTION_CALL: [
@@ -379,10 +374,6 @@ RULES_LIST = {
             ([const.FOR, const.VAR_AS, const.TO, const.FUNCTION_CALL, const.STEP, const.FUNCTION_CALL], const.FOR_STMT),
             ([const.WHILE, const.FUNCTION_CALL], const.WHILE_STMT),
             ([const.PRINT_KEYWORD, const.FUNCTION_CALL], const.PRINT_STMT),
-            ([const.IF_STMT, const.FUNCTION_CALL], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.FUNCTION_CALL], const.IF_BLOCK_STMT),
-            ([const.IF_STMT, const.THEN, const.FUNCTION_CALL], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.THEN, const.FUNCTION_CALL], const.IF_BLOCK_STMT),
         ],
         const.TYPE: [
             ([const.FUNCTION, const.FUNCTION_CALL, const.AS, const.TYPE], const.FUNCTION_DECLARATION),
@@ -396,10 +387,6 @@ RULES_LIST = {
             ([const.IF, const.VAR_AS], const.IF_STMT),
             ([const.ELSE_IF, const.VAR_AS], const.ELSE_IF_STMT),
             ([const.RETURN_STMT, const.VAR_AS], const.RETURN_STMT),
-            ([const.IF_STMT, const.VAR_AS], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.VAR_AS], const.IF_BLOCK_STMT),
-            ([const.IF_STMT, const.THEN, const.VAR_AS], const.IF_BLOCK_STMT),
-            ([const.ELSE_IF_STMT, const.THEN, const.VAR_AS], const.IF_BLOCK_STMT),
             ([const.VAR_AS, const.AND, const.VAR_AS], const.CONDITION),
             ([const.VAR_AS, const.OR, const.VAR_AS], const.CONDITION),
             ([const.CONDITION, const.AND, const.VAR_AS], const.CONDITION),
