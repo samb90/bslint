@@ -42,19 +42,20 @@ class InterfaceHandler(Process):
             return
 
         self.manifest_path = self._get_manifest_path(self.args.path)
-        self.bslintrc = self._parse_bslintrc(self.manifest_path, self.out)
-
-        self.start_spinner()
-        self.lint()
-        self.print_summary()
-        self.send_to_pipe()
+        self._parse_bslintrc(self.manifest_path, self.out)
+        if self.bslintrc is not None:
+            self.start_spinner()
+            self.lint()
+            self.print_summary()
+            self.send_to_pipe()
 
     def lint(self):
         if self.args.path:
-            if os.path.isfile(self.args.path):
-                self.lint_file(self.args.path)
+            pathname = os.path.abspath(self.args.path)
+            if os.path.isfile(pathname):
+                self.lint_file(pathname)
             else:
-                self.lint_all(self.args.path)
+                self.lint_all(pathname)
         else:
             pathname = os.getcwd()
             self.lint_all(pathname)
@@ -163,10 +164,9 @@ class InterfaceHandler(Process):
         parser.add_argument('--version', "-v", action='version', version=self.get_version(), help="Get current version")
         self.args = parser.parse_args()
 
-    @staticmethod
-    def _parse_bslintrc(manifest_path, out):
+    def _parse_bslintrc(self, manifest_path, out):
         bslintrc_path = os.path.join(manifest_path, ".bslintrc")
-        return bslint.config_loader.load_config_file(bslintrc_path, out=out)
+        self.bslintrc = bslint.config_loader.load_config_file(bslintrc_path, out=out)
 
     def get_relative_path(self, dir_name):
         directory = os.path.abspath(self.manifest_path)
