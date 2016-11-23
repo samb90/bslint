@@ -1,27 +1,22 @@
-function DisplayDefaultGridCommand() as Object
+this = {
+    nowNextModel: {typeOf:"NowNextModel"}
+    watchLivePageMediator: {typeOf: "WatchLivePageMediator"}
 
-	this = {
+    execute: function (_payload={} as Object) as Void
+        nowNextItem = m.nowNextModel.getNowNextItem()
 
-		contentService: {typeOf:"ContentService"}
-		configService: {typeOf: "ConfigService"}
-		catalogueModel: {typeOf: "CatalogueModel"}
+        if nowNextItem <> Invalid
+            if _payload.data
+                data = nowNextItem.now
+            else
+                data = nowNextItem.next
+            end if
 
-		execute: function (_payload={} as Object) as Void
-			_node = _payload.data
-			currentCatalogueCollection = m.configService.getSettingValue(Settings().CURRENT_CATALOGUE_COLLECTION)
+            data.channelLogo = nowNextItem.key.logoUrl
 
-			if currentCatalogueCollection <> Invalid and currentCatalogueCollection <> NodeTypes().UNKNOWN
+            m.watchLivePageMediator.setField("detailContent", data)
+        end if
 
-				m.messageBus.dispatchEvent(Event(Actions().CLEAR_MAIN_PANEL_SET))
-				m.messageBus.dispatchEvent(Event(Actions().CREATE_DEFAULT_GRID_COMPONENT, _node))
-
-				m.configService.setSetting(Settings().CURRENT_CATALOGUE_COLLECTION, NodeTypes().UNKNOWN)
-			end if
-
-			m.catalogueModel.setViewData(_node.items[0])
-			m.catalogueModel.setIndex(0)
-		end function
-	}
-	return this
-
-end function
+        m.watchLivePageMediator.setField("detailGenerate", true)
+    end function
+}
