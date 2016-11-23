@@ -174,6 +174,9 @@ RULES_LIST = {
             ([const.FUNCTION_CALL, const.EQUALS, const.ID], const.CONDITION),
             ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.ID], const.CONDITION),
         ],
+        const.ANONYMOUS_FUNCTION_BLOCK: [
+            ([const.ID, const.EQUALS, const.ANONYMOUS_FUNCTION_BLOCK], const.VAR_AS),
+        ],
     },
     const.PRIORITY_FOUR: {
         const.ID: [
