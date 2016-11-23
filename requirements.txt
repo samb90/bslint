@@ -2,4 +2,3 @@ nose
 pyenchant
 pylint
 coverage
-fabric3
