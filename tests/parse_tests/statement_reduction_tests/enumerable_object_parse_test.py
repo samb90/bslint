@@ -62,6 +62,21 @@ class TestArgumentParse(unittest.TestCase):
     def test_open_enumerable_object_value_colon_value(self):
         self.common.match_statement(const.ENUMERABLE_OBJECT, "{\"help\":1}")
 
+    def test_keyword_as_object_key(self):
+        self.common.match_statement(const.ENUMERABLE_OBJECT, "{\nnext: 3\n}")
+
+    def test_keyword_as_object_key_with_object_as_value(self):
+        self.common.match_statement(const.ENUMERABLE_OBJECT, "{\nnext: {data: \"NEXT_DATA\"}\n}")
+
+    def test_keyword_as_function_call(self):
+        self.common.match_statement(const.ENUMERABLE_OBJECT, "{next: func_name()}")
+
+    def test_keyword_as_id(self):
+        self.common.match_statement(const.ENUMERABLE_OBJECT, "{next: id}")
+
+    def test_keyword_as_key_with_anonymous_function_as_val(self):
+        self.common.match_statement(const.ENUMERABLE_OBJECT, "{next:function () \n c=3\nend function}")
+
     def test_invalid_associative_array_var_as(self):
         self.common.status_error("{x = 3}")
 

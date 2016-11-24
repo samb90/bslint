@@ -102,6 +102,24 @@ class TestIfParse(unittest.TestCase):
     def test_if_var_as_or_condition(self):
         self.common.match_statement(const.IF_STMT, "if x = 3 or y < 5")
 
+    def test_if_function_call_or_condition(self):
+        self.common.match_statement(const.IF_STMT, "if x() or y < 5")
+
+    def test_if_function_call_and_condition(self):
+        self.common.match_statement(const.IF_STMT, "if x() and y < 5")
+
+    def test_if_condition_and_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if y < 5 and X()")
+
+    def test_if_condition_or_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if y < 5 or X()")
+
+    def test_if_function_call_and_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if y() and X()")
+
+    def test_if_function_call_or_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if y() or X()")
+
     # def test_if_value_equals_anonymous_function(self):
     #     self.common.match_program(const.IF_STMT, "if 5 = function() \n c=3 \n end function")
 
