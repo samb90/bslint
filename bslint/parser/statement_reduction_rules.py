@@ -49,7 +49,7 @@ RULES_LIST = {
         const.FUNCTION_CALL: [
             ([const.FUNCTION_CALL, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
             ([const.ID, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
-            ([const.ENUMERABLE_OBJECT, const.DOT, const.FUNCTION_CALL], const.ENUMERABLE_OBJECT),
+            ([const.ENUMERABLE_OBJECT, const.DOT, const.FUNCTION_CALL], const.FUNCTION_CALL),
         ],
         const.BUILT_IN_FUNCTION: [
             ([const.ID, const.DOT, const.BUILT_IN_FUNCTION], const.ID)
@@ -455,20 +455,6 @@ RULES_LIST = {
         const.ENUMERABLE_OBJECT: [
             ([const.PRINT_KEYWORD, const.ENUMERABLE_OBJECT], const.PRINT_STMT),
             ([const.RETURN_STMT, const.ENUMERABLE_OBJECT], const.RETURN_STMT),
-        ],
-        const.ANONYMOUS_FUNCTION_DECLARATION: [
-            ([const.IF, const.ANONYMOUS_FUNCTION_DECLARATION], const.IF_STMT),
-            ([const.VALUE, const.COMPARISON_OPERATOR, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.ID, const.COMPARISON_OPERATOR, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.FUNCTION_CALL, const.COMPARISON_OPERATOR, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.ANONYMOUS_FUNCTION_DECLARATION, const.COMPARISON_OPERATOR, const.ANONYMOUS_FUNCTION_DECLARATION],
-             const.CONDITION),
-            ([const.ELSE_IF, const.ANONYMOUS_FUNCTION_DECLARATION], const.ELSE_IF_STMT),
-            ([const.RETURN_STMT, const.ANONYMOUS_FUNCTION_DECLARATION], const.RETURN_STMT),
-            ([const.VALUE, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.FUNCTION_CALL, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION], const.CONDITION),
-            ([const.ANONYMOUS_FUNCTION_DECLARATION, const.EQUALS, const.ANONYMOUS_FUNCTION_DECLARATION],
-             const.CONDITION),
         ],
         const.THEN: [
             ([const.IF, const.CONDITION, const.THEN], const.IF_STMT),
